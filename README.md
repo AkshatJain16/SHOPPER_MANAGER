@@ -76,7 +76,11 @@ Clicking a button:
 
 ---
 
+## 📸 Screenshot
 
+![Shopper Manager Preview](Images/Preview.png)
+
+---
 
 ## ▶️ Run Locally
 
