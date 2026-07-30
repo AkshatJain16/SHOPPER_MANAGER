@@ -102,22 +102,3 @@ cd Inventory-Management
 
 ---
 
-## 🎯 Future Improvements
-
-- Delete Product
-- Edit Product
-- Search Products
-- Product Categories
-- Sorting & Filtering
-- Better Stock Management
-- User Authentication
-- Database Integration (MongoDB/MySQL)
-
----
-
-# Make sure to generate your own API key to get the project
-
-
-**Prince Jain**
-
-GitHub: https://github.com/your-github-username
