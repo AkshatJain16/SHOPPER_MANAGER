@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding:30px 15px;
+
+    background:linear-gradient(135deg,#99b0d5,#912d61);
+}
+
+/* Main Container */
+
+.container{
+    width:100%;
+    max-width:390px;
+}
+
+/* Heading */
+
+h1{
+    text-align:center;
+    color:#442020;
+    font-size:1.9rem;
+    margin-bottom:5px;
+    border-radius: 10px;
+    font-weight:600;
+    text-shadow:0 3px 10px rgba(0,0,0,.25);
+
+}
+
+/* Form */
+
+form{
+    background:rgba(232, 162, 162, 0.95);
+    padding:18px;
+    border-radius:16px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.18);
+
+    display:flex;
+    flex-direction:column;
+}
+
+label{
+    margin:8px 0 4px;
+    font-size:14px;
+    font-weight:600;
+    color:#374151;
+}
+
+input{
+    width:100%;
+    padding:9px 12px;
+
+    border:none;
+    border-radius:8px;
+
+    background:#eef4ff;
+
+    font-size:14px;
+
+    transition:.25s;
+}
+
+input:focus{
+    outline:none;
+    background:white;
+    box-shadow:0 0 0 3px rgba(91,134,229,.3);
+}
+
+/* Add Item Button */
+
+form button{
+    margin-top:18px;
+
+    padding:10px;
+
+    border:none;
+    border-radius:8px;
+
+    background:linear-gradient(135deg,#5b86e5,#4f6df5);
+
+    color:white;
+    font-size:15px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+form button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px rgba(79,109,245,.35);
+}
+
+/* Product List */
+
+ul{
+    margin-top:20px;
+    list-style:none;
+
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+/* Product Card */
+
+li{
+    background:white;
+
+    padding:12px 14px;
+
+    border-radius:12px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.12);
+
+    transition:.25s;
+}
+
+li:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 24px rgba(0,0,0,.18);
+}
+
+/* Product Details */
+
+.product-info{
+    flex:1;
+}
+
+.product-info h3{
+    color:#3556d8;
+    font-size:16px;
+    margin-bottom:3px;
+}
+
+.product-info p{
+    font-size:13px;
+    color:#555;
+}
+
+.quantity{
+    display:inline-block;
+
+    background:linear-gradient(135deg,#06b6d4,#2563eb);
+
+    color:white;
+
+    padding:2px 8px;
+
+    border-radius:15px;
+
+    font-size:12px;
+
+    font-weight:600;
+}
+
+/* Buy Buttons */
+
+.buttons{
+    display:flex;
+    gap:5px;
+}
+
+.buttons button{
+    border:none;
+
+    padding:6px 10px;
+
+    border-radius:7px;
+
+    color:white;
+
+    font-size:12px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+/* Buy 1 */
+
+.buttons button:nth-child(1){
+    background:linear-gradient(135deg,#b47935,#28357c);
+}
+
+/* Buy 2 */
+
+.buttons button:nth-child(2){
+    background:linear-gradient(135deg,#34ad24,#29b2a9);
+}
+
+/* Buy 3 */
+
+.buttons button:nth-child(3){
+    background:linear-gradient(135deg,#c85b5b,#dc2626bb);
+}
+
+/* Hover */
+
+.buttons button:hover{
+    transform:scale(1.08);
+    filter:brightness(1.08);
+}
+
+/* Click */
+
+.buttons button:active{
+    transform:scale(.95);
+}
+
+/* Mobile */
+
+@media(max-width:500px){
+
+    body{
+        padding:20px 10px;
+    }
+
+    .container{
+        max-width:100%;
+    }
+
+    h1{
+        font-size:1.6rem;
+    }
+
+    li{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    .buttons{
+        width:100%;
+        justify-content:space-between;
+    }
+
+    .buttons button{
+        flex:1;
+    }
+}
