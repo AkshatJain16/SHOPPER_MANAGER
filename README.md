@@ -51,6 +51,8 @@ Product data is stored permanently in a MySQL database through a Node.js and Exp
 
 ## 📁 Project Structure
 
+## 📁 Project Structure
+
 Inventory-Management
 │
 ├── frontend
