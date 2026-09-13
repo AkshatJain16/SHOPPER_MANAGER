@@ -1,3 +1,6 @@
+const apiUrl = "http://localhost:3000";
+
+// Add item
 function handleFormSubmit(event){
     event.preventDefault();
     const itemDetails = {
@@ -6,51 +9,47 @@ function handleFormSubmit(event){
         price: event.target.price.value,
         quantity: Number(event.target.quantity.value)
     };
-
-    axios.post("https://crudcrud.com/api/039aaaea6b4d4d4bb84b088898f4c3a0/itemData", 
-        itemDetails
-    )
-    .then((response)=> displayItemsOnScreen(response.data))
-    .catch((error)=> console.log(error));
-
+    axios.post(`${apiUrl}/item/add-item`, itemDetails)
+    .then((response) => {
+        displayItemsOnScreen(response.data);
+    })
+    .catch((error) => {
+        console.log(error);
+    });
     document.getElementById("itemName").value = "";
     document.getElementById("description").value = "";
     document.getElementById("price").value = "";
     document.getElementById("quantity").value = "";
 }
 
+// Display item on screen
 function displayItemsOnScreen(itemDetails){
     const itemInfo = document.createElement("li");
-
     const itemText = document.createElement("div");
-itemText.classList.add("product-info");
+    itemText.classList.add("product-info");
 
-itemText.innerHTML = `
-<h3>${itemDetails.itemName}</h3>
-<p>
-    <strong>${itemDetails.description}</strong>
-    &nbsp;|&nbsp;
-    ₹${itemDetails.price}
-    &nbsp;|&nbsp;
-    Qty:
-    <span class="quantity">${itemDetails.quantity}</span>
-</p>
-`;
+    itemText.innerHTML = `
+        <h3>${itemDetails.itemName}</h3>
+        <p>
+            <strong>${itemDetails.description}</strong>
+            &nbsp;|&nbsp;
+            ₹${itemDetails.price}
+            &nbsp;|&nbsp;
+            Qty:
+            <span class="quantity">${itemDetails.quantity}</span>
+        </p>
+    `;
 
-itemInfo.appendChild(itemText);
     itemInfo.appendChild(itemText);
 
     const buy1btn = document.createElement("button");
     buy1btn.appendChild(document.createTextNode("Buy 1"));
-    itemInfo.appendChild(buy1btn);
 
     const buy2btn = document.createElement("button");
     buy2btn.appendChild(document.createTextNode("Buy 2"));
-    itemInfo.appendChild(buy2btn);
 
     const buy3btn = document.createElement("button");
     buy3btn.appendChild(document.createTextNode("Buy 3"));
-    itemInfo.appendChild(buy3btn);
 
     const buttonGroup = document.createElement("div");
     buttonGroup.className = "buttons";
@@ -63,53 +62,53 @@ itemInfo.appendChild(itemText);
 
     document.querySelector("ul").appendChild(itemInfo);
 
-    buy1btn.addEventListener("click", ()=>{
+    buy1btn.addEventListener("click", () => {
         updateQuantity(itemDetails, 1, itemText);
-    })
-
-    buy2btn.addEventListener("click", ()=>{
+    });
+    buy2btn.addEventListener("click", () => {
         updateQuantity(itemDetails, 2, itemText);
-    })
-
-    buy3btn.addEventListener("click", ()=>{
+    });
+    buy3btn.addEventListener("click", () => {
         updateQuantity(itemDetails, 3, itemText);
-    })
+    });
 }
 
+// Update quantity
 function updateQuantity(itemDetails, amount, itemText){
     if(itemDetails.quantity < amount){
         alert("Not enough quantity available. Contact the shopkeeper!");
         return;
     }
+    const newQuantity = itemDetails.quantity - amount;
 
     const updatedItem = {
-        itemName: itemDetails.itemName,
-        description: itemDetails.description,
-        price: itemDetails.price,
-        quantity: itemDetails.quantity - amount
+        quantity: newQuantity
     };
 
-    axios
-    .put(`https://crudcrud.com/api/039aaaea6b4d4d4bb84b088898f4c3a0/itemData/${itemDetails._id}`, 
+    axios.put(
+        `${apiUrl}/item/update-quantity/${itemDetails.id}`,
         updatedItem
     )
-    .then(() => {
-    itemDetails.quantity -= amount;
-
-    itemText.querySelector(".quantity").textContent = itemDetails.quantity;
+    .then((response) => {
+        itemDetails.quantity = response.data.quantity;
+        itemText.querySelector(".quantity").textContent =
+            itemDetails.quantity;
     })
-    .catch((error)=>{
+    .catch((error) => {
         console.log(error);
     });
 }
 
-window.addEventListener("DOMContentLoaded", ()=>{
+// When page loads, display all items
+window.addEventListener("DOMContentLoaded", () => {
     axios
-    .get("https://crudcrud.com/api/039aaaea6b4d4d4bb84b088898f4c3a0/itemData")
-    .then((res)=>{
-        res.data.forEach((user)=>{
-            displayItemsOnScreen(user);
+        .get(`${apiUrl}/item/get-items`)
+        .then((res) => {
+            res.data.forEach((item) => {
+                displayItemsOnScreen(item);
+            });
         })
-    })
-    .catch((error)=> console.log(error));
-})
+        .catch((error) => {
+            console.log(error);
+        });
+});

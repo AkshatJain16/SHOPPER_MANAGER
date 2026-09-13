@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8" /> <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Product Inventory</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <!-- Header -->
+    <div class="page-header">
+        <p class="small-heading">INVENTORY MANAGEMENT</p>
+        <h1>Product Details</h1>
+        <p class="header-text">
+            Add products and manage available stock easily.
+        </p>
+    </div>
+
+    <!-- Product Form -->
+    <form onsubmit="handleFormSubmit(event)">
+        <div class="form-title">
+            <h2>Add New Product</h2>
+            <p>Enter the product details below</p>
+        </div>
+        <div class="form-group">
+            <label for="itemName">Item Name</label>
+            <input
+                type="text"
+                name="itemName"
+                id="itemName"
+                placeholder="Enter item name"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input
+                type="text"
+                name="description"
+                id="description"
+                placeholder="Enter product description"
+                required
+            >
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="price">Price</label>
+                <div class="input-box">
+                    <span>₹</span>
+                    <input
+                        type="number"
+                        name="price"
+                        id="price"
+                        placeholder="0"
+                        required
+                    >
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input
+                    type="number"
+                    name="quantity"
+                    id="quantity"
+                    placeholder="0"
+                    min="0"
+                    required
+                >
+            </div>
+        </div>
+        <button type="submit">
+            Add Item
+        </button>
+    </form>
+
+    <!-- Product List -->
+    <div class="products-section">
+        <div class="section-header">
+            <div>
+                <p class="small-heading">PRODUCTS</p>
+                <h2>Available Items</h2>
+            </div>
+            <div class="stock-label">
+                Stock
+            </div>
+        </div>
+
+        <ul></ul>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
