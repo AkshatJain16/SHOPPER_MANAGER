@@ -45,8 +45,7 @@ Product data is stored permanently in a MySQL database through a Node.js and Exp
 
 ## 📸 Preview
 
-![Inventory Management App Preview](Images/preview.png)
-
+![Inventory Management App Preview](Images/Preview.png)
 
 ---
 
