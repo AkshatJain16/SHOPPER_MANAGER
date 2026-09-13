@@ -49,33 +49,6 @@ Product data is stored permanently in a MySQL database through a Node.js and Exp
 
 ---
 
-## 📁 Project Structure
-
-## 📁 Project Structure
-
-Inventory-Management
-│
-├── frontend
-│   ├── index.html
-│   ├── style.css
-│   └── index.js
-│
-└── backend
-    ├── app.js
-    │
-    ├── controllers
-    │   └── itemController.js
-    │
-    ├── models
-    │   └── items.js
-    │
-    ├── routes
-    │   └── itemRoutes.js
-    │
-    └── utils
-        └── db-connection.js
-
----
 
 ## ⚙️ How It Works
 
