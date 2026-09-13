@@ -145,32 +145,13 @@ If the available quantity is less than the requested amount, the application dis
 
 ---
 
-## 🗄️ Database
 
-The application uses MySQL for storing product information.
 
-Create the database using:
+## ▶️ Run Locally
 
-CREATE DATABASE product_app;
+1. Clone the repository
 
-The Items table is created automatically by Sequelize when the backend starts.
-
-### Product Fields
-
-| Field | Type | Description |
-|-------|------|-------------|
-| id | INTEGER | Primary key |
-| itemName | STRING | Product name |
-| description | STRING | Product description |
-| price | INTEGER | Product price |
-| quantity | INTEGER | Available stock |
-
----
-
-# ▶️ Run Locally
-
-## 1. Clone the Repository
-
+```bash
 git clone https://github.com/your-username/Inventory-Management.git
 
 ---
@@ -349,42 +330,22 @@ http://localhost:3000
 
 ---
 
-# 🎯 Future Improvements
+## 🎯 Future Improvements
 
 - Delete Product
 - Edit Product
 - Search Products
 - Product Categories
-- Sorting and Filtering
-- Low Stock Notifications
+- Sorting & Filtering
 - Better Stock Management
 - User Authentication
-- Product Images
-- Order Management
-- Sales Tracking
-- Dashboard with Inventory Statistics
+- Database Integration (MongoDB/MySQL)
 
 ---
 
-# 📚 Learning Objectives
+# Make sure to generate your own API key to get the project
 
-This project helps demonstrate:
 
-- Creating a frontend using HTML, CSS, and JavaScript
-- Sending API requests using Axios
-- Creating a REST API using Express.js
-- Organizing backend code using Routes and Controllers
-- Connecting Node.js with MySQL
-- Using Sequelize ORM
-- Creating and querying database tables
-- Updating database records
-- Connecting frontend and backend
-- Managing inventory quantity through APIs
+**Prince Jain**
 
----
-
-# 👨‍💻 Author
-
-Akshat Jain
-
-GitHub: https://github.com/AkshatJain16
+GitHub: https://github.com/your-github-username
